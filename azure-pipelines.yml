@@ -6,16 +6,17 @@
 trigger:
 - main
 
-pool:
-  name: Agent Devops test
-  demands:
-  - Agent.version -equals 3.243.1
+jobs:
+- job: job1
+  pool:
+    name: Agent Devops test    # your job runs on an agent in this pool
+    demands: Agent.name -equals DCTEST8976   # the agent must have this capability to run the job
+  steps:
+  - script: echo hello world
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- job: job2
+  pool:
+    name: Agent Devops test    # your job runs on an agent in this pool
+    demands: Agent.name -equals DCTEST8976-2    # the agent must have this capability to run the job
+  steps:
+  - script: echo hello world
