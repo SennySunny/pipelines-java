@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  Pool: Agent Devops test
+  name: Agent Devops test
   vmImage: ubuntu-latest
 
 steps:
