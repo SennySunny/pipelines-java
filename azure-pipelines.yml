@@ -8,7 +8,8 @@ trigger:
 
 pool:
   name: Agent Devops test
-  vmImage: ubuntu-latest
+  demands:
+  - Agent.version -equals 3.243.1
 
 steps:
 - script: echo Hello, world!
